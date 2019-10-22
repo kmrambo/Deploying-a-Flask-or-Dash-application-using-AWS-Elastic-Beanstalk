@@ -35,19 +35,25 @@ Now, let’s go to the process of uploading the project into the AWS instance. R
   ## To create an EBS environment and deploy the Flask application:
       1. Navigate to the project directory on command line i.e. "application_folder"
       2. Initialize your EB CLI repository with the eb init command:
-          ```
+```
           eb init -p python-3.6 flask-app --region us-east-2
-          ```
+```
       3. Run eb init again to configure the default keypair so that you can connect to the EC2 instance running your application with SSH:
-          ```
+```
           eb init
-          ```
+```
           You will be prompted to select the already existing key pair that you downloaded in Step 3. Select the key pair and finish this step.
        4. Create an environment and deploy your application to it with eb create:
-          ```
+```
           eb create flask-env
-          ```
+```
 Now if you had followed all the steps properly, the application will get hosted in sometime. You can view the status in the command line itself. 
+
+
+# Step 6:
+In order to find the URL on which the EBS hosted the application for us, you have to login into your AWS account, navigate to th "Elastic Beanstalk" service and select the environment that we just created. 
+The EBS dashboard after a successfull hosting would look like this:
+
 
 
   
