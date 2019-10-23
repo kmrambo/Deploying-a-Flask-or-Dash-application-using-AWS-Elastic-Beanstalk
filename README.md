@@ -56,5 +56,5 @@ The EBS dashboard after a successfull hosting would look like this:
 
 
 
-  
+I'm still updating the further steps. Watch out for more updates!
     
