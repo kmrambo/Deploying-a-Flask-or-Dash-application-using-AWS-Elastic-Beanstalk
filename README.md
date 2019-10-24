@@ -51,10 +51,15 @@ Now if you had followed all the steps properly, the application will get hosted 
 
 
 # Step 6:
-In order to find the URL on which the EBS hosted the application for us, you have to login into your AWS account, navigate to th "Elastic Beanstalk" service and select the environment that we just created. 
+In order to find the URL on which the EBS hosted the application for us, you have to login into your AWS account, navigate to th "Elastic Beanstalk" service and select the environment that we just created by navigating the application name. 
 The EBS dashboard after a successfull hosting would look like this:
 
+![EBS Console after hosting](/images/AWS_scrn1.png)
 
+Now click on the URL and it should take you to the hosted URL.
+
+
+Now that I've outlined all the steps to successfully host a flask or dash application, what if you get any errors. What if you get any errors wile uploading your application or what if you are not able to access your application on the URL even after a successful hosting. Below, I will outline the steps on how to debug the errors and to identify whats the error if anything has gone wrong
 
 I'm still updating the further steps. Watch out for more updates!
     
