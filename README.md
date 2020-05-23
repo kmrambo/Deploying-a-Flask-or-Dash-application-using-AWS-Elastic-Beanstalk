@@ -91,7 +91,7 @@ You should also learn how to ```ssh``` (secure shell - to connect to your Elasti
  2. Your application might run into memory or CPU limitations on the EC2 instance if your application does too much of processing. This totally depends on your application. While hosting the application using AWS Elastic Beanstalk, a ```t2.micro``` instance is provisioned for your application. This is the default instance configuration and consists of very minimal memory and CPU. You can identify if your application is running into such issues by monitoring the CPU and memory utilization of your EC2 instance after connecting to your instance through ```ssh``` while your application is being accessed on the browser. [Here](https://www.binarytides.com/linux-command-check-memory-usage/) is how to check the Memory and CPU utilization after connecting to your EC2 instance through ```ssh```.
  3. In any case, if you have found out that your application is running into memory or CPU limits, you can change the configuration of the EC2 instance of your ElasticBeanstalk application after the application is hosted. You can do so by navigating to your application environment inside Elastic Beanstalk Console, and clicking on ```Configuration```. Over here, you will be able to upscale your EC2 instance from ```t2.micro``` to any configuration you want.
  
-##Some Pro tips
+## Some Pro tips
 **Under which path does your hosted application reside inside your EC2 instance?**
  This is the path where your application resides in your EC2 instance. i.e. the project directory ```/opt/python/bundle/2/app```. Which also means, your application will get rendered from this path only. Trust me, it took a lot of time for me to identify this :)
  
