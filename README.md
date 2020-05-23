@@ -91,14 +91,15 @@ You should also learn how to ```ssh``` (secure shell - to connect to your Elasti
  2. Your application might run into memory or CPU limitations on the EC2 instance if your application does too much of processing. This totally depends on your application. While hosting the application using AWS Elastic Beanstalk, a ```t2.micro``` instance is provisioned for your application. This is the default instance configuration and consists of very minimal memory and CPU. You can identify if your application is running into such issues by monitoring the CPU and memory utilization of your EC2 instance after connecting to your instance through ```ssh``` while your application is being accessed on the browser. [Here](https://www.binarytides.com/linux-command-check-memory-usage/) is how to check the Memory and CPU utilization after connecting to your EC2 instance through ```ssh```.
  3. In any case, if you have found out that your application is running into memory or CPU limits, you can change the configuration of the EC2 instance of your ElasticBeanstalk application after the application is hosted. You can do so by navigating to your application environment inside Elastic Beanstalk Console, and clicking on ```Configuration```. Over here, you will be able to upscale your EC2 instance from ```t2.micro``` to any configuration you want.
  
- **A pro tip: Under which path does your hosted application reside inside your EC2 instance?**
+##Some Pro tips
+**Under which path does your hosted application reside inside your EC2 instance?**
  This is the path where your application resides in your EC2 instance. i.e. the project directory ```/opt/python/bundle/2/app```. Which also means, your application will get rendered from this path only. Trust me, it took a lot of time for me to identify this :)
  
  
- **Application re-deployment or rolling out updates**
+ **Application re-deployment or rolling out updates:**
  We might want to push new changes to our project in the future. In such cases, it is not necessary to host your updated project again from scratch. You can simply do a ```ssh``` into your instance, navigate to the project directory which is ```/opt/python/bundle/2/app``` and edit your project directory for the updates. If you have lots of updates, say for example with ```application.py``` or any supporting files, you can transfer the updated files directly from your local machine to your EC2 instance using ```ssh```. A google search will tell you how to transfer files between your local machine and EC2 instance.
  
-**Installing new packages in the future**
+**Installing new packages in the future:**
 Okay, now that ElasticBeanstalk has hosted my application for me like a breeze. But where is the python virtual environment on the EC2 instance where ElasticBeanstalk has installed all my packages from ```requirements.txt```. You will need this environment information if for example, you make any new updates to your ```application.py``` which include installing new packages that were not present in ```requirements.txt``` at the time of hosting your application. For changes like these where you might want to install new packages in the future for your application on your EC2 instance, simple do a ```ssh``` into the instance, 
 do then do a ```cd /opt/python/run/venv/bin``` (this is the path of the virtual environment where ElasticBeanstalk installs all your packages), activate the environment using ```source ./activate``` and then do ```pip install your-packagename```.
 
