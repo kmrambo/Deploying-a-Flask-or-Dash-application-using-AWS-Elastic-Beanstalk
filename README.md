@@ -43,6 +43,7 @@ Now, let’s go to the process of hosting our project with AWS ElasticBeanstalk.
           eb init
 ```
    You will be prompted to select the already existing key pair that you downloaded in Step 3. Select the key pair and finish this step.
+   
    4. Create an environment and deploy your application to it with eb create:
 ```
           eb create flask-env
