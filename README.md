@@ -1,5 +1,5 @@
 # Deploying-a-flask-or-Dash-application-on-AWS-using-Elastic-Beanstalk
-Steps to deploy a flask application on AWS
+**Steps to deploy a flask application on AWS**:
 
 I am writing this post because none of the steps outlined in other forums provide a comfortable and detailed guide about deploying a flask or a dash application on AWS. In all cases, I ended up finding my own ways to resolve the issues I came across. Apart from providing the steps to  successfully host the flask application on AWS, this post also covers the following areas:
   1. Where does the hosted application reside on the AWS Instance.
