@@ -32,22 +32,22 @@ Now that we have the EB-CLI installed, please check if the command ```eb``` is w
 
 # Step 5:
 Now, let’s go to the process of hosting our project with AWS ElasticBeanstalk. Remember that I have placed the flask application file(```application.py```), the ```requirements.txt``` file and all other supporting files under the directory named ```application_folder```.
-  ## To create an EBS environment and deploy the Flask application:
-      1. Navigate to the project directory on command line i.e. "application_folder"
-      2. Initialize your EB CLI repository with the eb init command:
+## To create an EBS environment and deploy the Flask application:
+  1. Navigate to the project directory on command line i.e. "application_folder"
+  2. Initialize your EB CLI repository with the eb init command:
 ```
           eb init -p python-3.6 flask-app --region us-east-2  #Make sure to change your desired Python version for your application here
 ```
-      3. Run eb init again to configure the default keypair so that you can connect to the EC2 instance running your application with SSH:
+   3. Run eb init again to configure the default keypair so that you can connect to the EC2 instance running your application with SSH:
 ```
           eb init
 ```
-          You will be prompted to select the already existing key pair that you downloaded in Step 3. Select the key pair and finish this step.
-       4. Create an environment and deploy your application to it with eb create:
+   You will be prompted to select the already existing key pair that you downloaded in Step 3. Select the key pair and finish this step.
+   4. Create an environment and deploy your application to it with eb create:
 ```
           eb create flask-env
 ```
-Now if you had followed all the steps properly, the application will get hosted in sometime. You can view the status in the command line itself. 
+   Now if you had followed all the steps properly, the application will get hosted in sometime. You can view the status in the command line itself. 
 
 
 # Step 6:
@@ -72,7 +72,7 @@ You should also learn how to ```ssh``` (secure shell - to connect to your Elasti
 **Step 1:**
     First and foremost, you have to make sure that you did not receive any errors while hosting the application using the ```eb``` command. You should get a message saying ```Application hosted successfully``` once the hosting process is complete. If you get any errors at this step, check for the root cause of the error and rectify it here itself.
     
-**Step 1:**
+**Step 2:**
   Now, if the application is hosted successfully without errors but for some reason, while accessing the URL of your ElasticBeanstalk hosted application on the browser, you receive any server error or any other kind of error, the first thing you should want to look into is the server logs of your Elastic Beanstalk application. 
   
  To retrieve the server logs of your application, login into your AWS account, navigate to the "Elastic Beanstalk" service and select the environment that we just created by navigating to the application name. Now click on **Logs** and then **Request Logs** to retrieve the last 100 lines or the entire logs. A folder named ```BundleLogs-SomeRandomNumber``` would get downloaded to your system now which contains all the logs of the entire server. 
@@ -90,7 +90,7 @@ You should also learn how to ```ssh``` (secure shell - to connect to your Elasti
  2. Your application might run into memory or CPU limitations on the EC2 instance if your application does too much of processing. This totally depends on your application. While hosting the application using AWS Elastic Beanstalk, a ```t2.micro``` instance is provisioned for your application. This is the default instance configuration and consists of very minimal memory and CPU. You can identify if your application is running into such issues by monitoring the CPU and memory utilization of your EC2 instance after connecting to your instance through ```ssh``` while your application is being accessed on the browser. [Here](https://www.binarytides.com/linux-command-check-memory-usage/) is how to check the Memory and CPU utilization after connecting to your EC2 instance through ```ssh```.
  3. In any case, if you have found out that your application is running into memory or CPU limits, you can change the configuration of the EC2 instance of your ElasticBeanstalk application after the application is hosted. You can do so by navigating to your application environment inside Elastic Beanstalk Console, and clicking on ```Configuration```. Over here, you will be able to upscale your EC2 instance from ```t2.micro``` to any configuration you want.
  
- A pro tip: **Under which path does your hosted application reside inside your EC2 instance?**
+ **A pro tip: Under which path does your hosted application reside inside your EC2 instance?**
  This is the path where your application resides in your EC2 instance. i.e. the project directory ```/opt/python/bundle/2/app```. Which also means, your application will get rendered from this path only. Trust me, it took a lot of time for me to identify this :)
  
  
